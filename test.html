@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IT Тест — QR сканерлеу</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:linear-gradient(135deg,#3b5bdb,#7048e8 60%,#d6336c)}
+main{padding:24px;width:100%;max-width:520px}
+h1{font-size:34px;margin:0 0 8px;letter-spacing:-.5px}
+p{margin:0 0 26px;opacity:.92;font-size:18px;line-height:1.5}
+.box{display:inline-block;background:#fff;padding:20px;border-radius:28px;box-shadow:0 20px 50px rgba(0,0,0,.3);animation:f .5s}
+#qr{width:280px;height:280px;max-width:70vw;max-height:70vw;color:#333;display:grid;place-items:center;font-size:14px}
+#qr img,#qr canvas{max-width:100%;height:auto!important}
+.steps{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:26px}
+.steps span{background:rgba(255,255,255,.18);padding:8px 14px;border-radius:99px;font-size:14px;font-weight:600}
+a{display:inline-block;margin-top:22px;color:#fff;opacity:.6;font-size:13px}
+@keyframes f{from{opacity:0;transform:scale(.92)}}
+</style>
+</head>
+<body>
+<main>
+<h1>IT Тест 🚀</h1>
+<p>Телефонмен QR-кодты сканерлеңіз</p>
+<div class="box"><div id="qr"></div></div>
+<div class="steps"><span>1 · Сканерле</span><span>2 · Тақырып таңда</span><span>3 · Тест тапсыр</span></div>
+<a id="own" href="test.html">Осы құрылғыда ашу</a>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+// QR осы беттің жанындағы test.html (тест беті) сілтемесін береді
+var url = new URL("test.html", location.href).href;
+var e = document.getElementById("qr");
+if (window.QRCode) new QRCode(e, { text: url, width: 280, height: 280, correctLevel: QRCode.CorrectLevel.M });
+else e.textContent = "QR жүктелмеді. Интернетті тексеріңіз.";
+</script>
+</body>
+</html>
